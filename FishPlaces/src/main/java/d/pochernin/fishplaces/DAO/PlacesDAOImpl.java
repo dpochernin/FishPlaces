@@ -25,7 +25,7 @@ public class PlacesDAOImpl implements IPlacesDAO {
 
     @Override
     @Transactional
-        public List<Place> allPlaces() {
+    public List<Place> allPlaces() {
         @SuppressWarnings("unchecked")
         List<Place> listPlaces = (List<Place>) sessionFactory.getCurrentSession()
                 .createCriteria(Place.class)
@@ -46,5 +46,22 @@ public class PlacesDAOImpl implements IPlacesDAO {
     public float getLong(int placeId) {
         Place place = (Place) sessionFactory.openSession().get(Place.class, placeId);
         return place.getPlaceGeoLong();
+    }
+
+    @Override
+    @Transactional
+    public void addPlace(Place place) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    @Transactional
+    public String getGEO(int placeId) {
+        @SuppressWarnings("unchecked")
+        Place place = (Place) sessionFactory.openSession().get(Place.class, placeId);
+        Float lat = (Float)place.getPlaceGeoLat();
+        Float lon_g = (Float)place.getPlaceGeoLong();
+        String geo = lat.toString() + ";" + lon_g.toString();
+        return geo;
     }
 }

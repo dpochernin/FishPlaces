@@ -5,6 +5,7 @@
  */
 package d.pochernin.fishplaces.DAO;
 
+import d.pochernin.fishplaces.entity.Fish;
 import d.pochernin.fishplaces.entity.Place;
 import java.util.List;
 
@@ -12,10 +13,11 @@ import java.util.List;
  *
  * @author 1
  */
-public interface IPlacesDAO {
-    List<Place> allPlaces();
-    float getLat(int placeId);
-    float getLong(int placeId);
-    void addPlace(Place place);
-    String getGEO(int placeId);
+public interface IFishInPlaceDAO {
+    
+    void addFishInPlace (Fish fish, Place place);
+    List<Fish> getFishInPlace (Place place);
+    List<Place> getPlacesWithFish (Fish fish);
+ 
+    
 }
