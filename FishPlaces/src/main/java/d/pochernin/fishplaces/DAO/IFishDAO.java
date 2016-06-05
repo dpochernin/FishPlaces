@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package d.pochernin.fishplaces.DAO;
+package d.pochernin.fishplaces.dao;
 
 import d.pochernin.fishplaces.entity.Fish;
 import java.util.List;
@@ -16,6 +16,6 @@ public interface IFishDAO {
     
     List<Fish> getAll();
     void addFish(Fish fish);
-    
+    Fish getByName (String name);   
     
 }

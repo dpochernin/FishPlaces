@@ -3,10 +3,10 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="show_sql">true</property> 
+    <property name="show_sql">true</property>
     <mapping class="d.pochernin.fishplaces.entity.FishInPlace"/>
     <mapping class="d.pochernin.fishplaces.entity.Fish"/>
     <mapping class="d.pochernin.fishplaces.entity.Place"/>
-   <!-- <mapping resource="queries.hbm.xml" /> -->
+    <!-- <mapping resource="queries.hbm.xml" /> -->
   </session-factory>
 </hibernate-configuration>

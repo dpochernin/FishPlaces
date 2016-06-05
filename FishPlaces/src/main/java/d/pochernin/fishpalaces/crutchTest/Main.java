@@ -5,8 +5,8 @@
  */
 package d.pochernin.fishpalaces.crutchTest;
 
-import d.pochernin.fishplaces.DAO.IPlacesDAO;
-import d.pochernin.fishplaces.DAO.PlacesDAOImpl;
+import d.pochernin.fishplaces.dao.IPlacesDAO;
+import d.pochernin.fishplaces.dao.PlacesDAOImpl;
 import d.pochernin.fishplaces.entity.Place;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
@@ -23,7 +23,7 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
         IPlacesDAO placeDAO = context.getBean(IPlacesDAO.class);
-        List<Place> places = placeDAO.allPlaces();
+        List<Place> places = placeDAO.getAll();
         String geo = null;
         for (Place place : places) {
             Float lat = (Float)place.getPlaceGeoLat();

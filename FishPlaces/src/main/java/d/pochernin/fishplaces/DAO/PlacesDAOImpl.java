@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package d.pochernin.fishplaces.DAO;
+package d.pochernin.fishplaces.dao;
 
 import d.pochernin.fishplaces.entity.Place;
 import java.util.List;
@@ -51,6 +51,14 @@ public class PlacesDAOImpl implements IPlacesDAO {
     public Place getById(int id) {
         Place place = null;
         Query query = sessionFactory.getCurrentSession().getNamedQuery("Places.findByPlaceId").setInteger("placeId", id);
+        place = (Place) query.uniqueResult();
+        return place;
+    }
+
+    @Override
+    public Place getByName(String name) {
+        Place place = null;
+        Query query = sessionFactory.getCurrentSession().getNamedQuery("Places.findByPlaceName").setString("placeName", name);
         place = (Place) query.uniqueResult();
         return place;
     }

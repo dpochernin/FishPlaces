@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package d.pochernin.fishplaces.DAO;
+package d.pochernin.fishplaces.dao;
 
 import d.pochernin.fishplaces.entity.Fish;
 import d.pochernin.fishplaces.entity.Place;
+import d.pochernin.fishplaces.entity.FishInPlace;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -28,7 +31,11 @@ public class FishInPlacesDAOImpl implements IFishInPlaceDAO {
     @Override
     @Transactional
     public void addFishInPlace(Fish fish, Place place) {
-
+        Session session = sessionFactory.getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        FishInPlace fishinplace = new FishInPlace(fish, place);
+        session.save(fishinplace);
+        session.close();
     }
 
     @Override

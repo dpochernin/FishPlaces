@@ -36,7 +36,7 @@ public class FishInPlace implements java.io.Serializable {
         this.id = id;
     }
 
-    public FishInPlace(int id, Fish fishes, Place places) {
+    public FishInPlace(Fish fishes, Place places) {
         this.id = id;
         this.fishes = fishes;
         this.places = places;
