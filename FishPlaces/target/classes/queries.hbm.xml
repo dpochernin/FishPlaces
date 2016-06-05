@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+     
+<hibernate-mapping>
+    <query name="HQL_GET_ALL_EMPLOYEE">from Employee</query>
+ 
+    <query name="HQL_GET_EMPLOYEE_BY_SALARY">
+        <![CDATA[from Employee where emp_salary > :salary]]>
+    </query>
+     
+       <sql-query name="ALL_EMP_ADDRESS">
+        <![CDATA[select {e.*}, {a.*} from Employee e join Address a ON e.emp_id=a.emp_id]]>
+        <return alias="e" class="com.journaldev.hibernate.model.Employee" />
+        <return-join alias="a" property="e.address"></return-join>
+    </sql-query>
+</hibernate-mapping>

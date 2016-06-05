@@ -13,9 +13,7 @@ import java.util.List;
  * @author 1
  */
 public interface IPlacesDAO {
-    List<Place> allPlaces();
-    float getLat(int placeId);
-    float getLong(int placeId);
-    void addPlace(Place place);
-    String getGEO(int placeId);
+    List<Place> getAll();
+    Place getById (int id);
+    void add(Place place);
 }

@@ -5,10 +5,10 @@
  */
 package d.pochernin.fishplaces.DAO;
 
+import d.pochernin.fishplaces.entity.Fish;
 import d.pochernin.fishplaces.entity.Place;
 import java.util.List;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,41 +18,32 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author 1
  */
-public class PlacesDAOImpl implements IPlacesDAO {
+public class FishDAOImpl implements IFishDAO {
 
     private static SessionFactory sessionFactory;
 
-    public PlacesDAOImpl(SessionFactory sessionFactory) {
+    public FishDAOImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
     @Override
     @Transactional
-    public List<Place> getAll() {
+    public List<Fish> getAll() {
         @SuppressWarnings("unchecked")
-        List<Place> listPlaces = (List<Place>) sessionFactory.getCurrentSession()
-                .createCriteria(Place.class)
+        List<Fish> listFish = (List<Fish>) sessionFactory.getCurrentSession()
+                .createCriteria(Fish.class)
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-        return listPlaces;
+        return listFish;
     }
 
     @Override
     @Transactional
-    public void add(Place place) {
+    public void addFish(Fish fish) {
         @SuppressWarnings("unchecked")
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        session.save(place);
+        session.save(fish);
         session.close();
-
-    }
-
-    @Override
-    public Place getById(int id) {
-        Place place = null;
-        Query query = sessionFactory.getCurrentSession().getNamedQuery("Places.findByPlaceId").setInteger("placeId", id);
-        place = (Place) query.uniqueResult();
-        return place;
     }
 
 }

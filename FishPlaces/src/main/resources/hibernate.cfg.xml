@@ -7,5 +7,6 @@
     <mapping class="d.pochernin.fishplaces.entity.FishInPlace"/>
     <mapping class="d.pochernin.fishplaces.entity.Fish"/>
     <mapping class="d.pochernin.fishplaces.entity.Place"/>
+   <!-- <mapping resource="queries.hbm.xml" /> -->
   </session-factory>
 </hibernate-configuration>
