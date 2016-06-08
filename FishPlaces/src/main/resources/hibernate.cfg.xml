@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="show_sql">true</property>
-    <mapping class="d.pochernin.fishplaces.entity.FishInPlace"/>
-    <mapping class="d.pochernin.fishplaces.entity.Fish"/>
-    <mapping class="d.pochernin.fishplaces.entity.Place"/>
-    <!-- <mapping resource="queries.hbm.xml" /> -->
-  </session-factory>
+    <session-factory>
+        <mapping class="ua.com.codefire.dao.entity.FishInPlace" />
+        <mapping class="ua.com.codefire.dao.entity.Fish" />
+        <mapping class="ua.com.codefire.dao.entity.Place" />
+    </session-factory>
 </hibernate-configuration>
